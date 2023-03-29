@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/xmpp-project.iml" filepath="$PROJECT_DIR$/.idea/xmpp-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xmpp-project.iml" filepath="$PROJECT_DIR$/xmpp-project.iml" />
     </modules>
   </component>
 </project>
