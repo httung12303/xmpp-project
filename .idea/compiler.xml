@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="untitled" target="17" />
       <module name="xmpp-project" target="1.8" />
     </bytecodeTargetLevel>
   </component>
