@@ -19,17 +19,14 @@ public class XMPPClient {
     private XMPPTCPConnectionConfiguration config;
     private AbstractXMPPConnection connection;
     private ChatManager chatManager;
+
     public void start(String username, String password, String domain, String host) throws IOException, SmackException, XMPPException, InterruptedException {
         // Disconnect existing connection in case client want to switch credentials
-        if(connection != null) {
+        if (connection != null) {
             connection.disconnect();
         }
 
-        config = XMPPTCPConnectionConfiguration.builder()
-                .setUsernameAndPassword(username, password)
-                .setXmppDomain(domain)
-                .setHost(host)
-                .build();
+        config = XMPPTCPConnectionConfiguration.builder().setUsernameAndPassword(username, password).setXmppDomain(domain).setHost(host).build();
 
         connection = new XMPPTCPConnection(config);
         connection.connect();
@@ -44,12 +41,12 @@ public class XMPPClient {
             }
         });
     }
+
     public void sendMsgToUser(String targetUser, String msg) throws SmackException.NotConnectedException, InterruptedException, XmppStringprepException {
         EntityBareJid jid = JidCreate.entityBareFrom(targetUser);
         Chat chat = chatManager.chatWith(jid);
         chat.send(msg);
-        System.out.printf("Message sent to: %s\n" +
-                "Content: %s\n", targetUser, msg);
+        System.out.printf("Message sent to: %s\n" + "Content: %s\n", targetUser, msg);
     }
 
     public void disconnect() {
@@ -69,7 +66,7 @@ public class XMPPClient {
             System.out.println(e.getMessage());
         }
 
-        while(true) {
+        while (true) {
             try {
                 Thread.sleep(100);
             } catch (Exception e) {
